@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 10f;
     private Rigidbody2D rb;
+    public GameObject particle;
 
     public ScoreController score;
 
@@ -33,6 +34,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
+            Instantiate(particle, transform.position, transform.rotation);
             ScoreController.singleton.AddScore();       
         }
     }
